@@ -1,23 +1,24 @@
 <?php
     include_once "php/erro.php";
+    include_once "php/funcaoTabuada.php";
 
     $resultados = (string)null;
+    $contador = (string)null;
+    $tabuada = (string)null;
 
     if(isset($_POST["enviar"])){
-
-        $contador = (int)$_POST["contador"];
-        $tabuada = (int)$_POST["tabuada"];
-
-        if($tabuada == 0)
-            echoErro(ERRO_ZERO);
-        else if($contador > 0){
-            for($i = 1; $i <= $contador; $i++){
-                $resultados = $resultados . $tabuada . " x " . $i . " = " .
-                ($tabuada * $i) . "<br>";
-            }
-
+        $contador = $_POST["contador"];
+        $tabuada = $_POST["tabuada"];
+        
+        if($tabuada == null){
+            echoErro("Erro: Nenhuma tabuada inserida.");
         }
-
+        else if($contador == null){
+            echoErro("Erro: Nenhuma contagem inserida.");
+        }
+        else{//nenhum camp ta vazio
+            $resultados = tabuadaParaHTML($tabuada, $contador);
+        }
     }
 ?>
 
@@ -35,10 +36,14 @@
     <main>
         <form method="post" action="" name="">
             <div class="container">
+               <div class="text">
                 <label for="">Tabuada</label>
-                <input type="text" name="tabuada">
+                <input type="text" name="tabuada" value="<?=$tabuada?>">
+                </div>
+                <div class="text">
                 <label for="">Contador</label>
-                <input type="text" name="contador">
+                <input type="text" name="contador"  value="<?=$contador?>">
+                </div>
             </div>
             <div class="resultado">
                 <?=$resultados?>
@@ -49,7 +54,7 @@
         </form>
     </main>
     <footer>
-
+        2021 - RICHARD
     </footer>
 </body>
 </html>

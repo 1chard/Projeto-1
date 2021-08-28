@@ -1,14 +1,33 @@
 <?php
+    include_once "php/erro.php";
+    include_once "php/funcaoParImpar.php";
+
     $impares = (string)null;
     $pares = (string)null;
+    $imparesQ = (int)0;
+    $paresQ = (int)0;
 
     if(isset($_POST["enviar"])){
-        for($i = (int)$_POST["inicial"]; $i <= (int)$_POST["final"]; ++$i){
-            if(($i % 2) == 1)
-                $impares = $impares . $i . "<br>";
-            else
-                $pares = $pares . $i . "<br>";
-
+        if($_POST["inicial"] == "" || $_POST["final"] == ""){ 
+            echoErro("Erro: Campo(s) não preenchidos");
+        }
+        else{
+        
+        $inicial = (int)$_POST["inicial"];
+        $final = (int)$_POST["final"];
+        
+            
+        if($inicial > $final)
+            echoErro("Erro: " . ERRO_MAIOR . ", $inicial é maior que $final");
+        else if($inicial == $final)
+            echoErro("Erro: O valor inicial é o mesmo que o final ($inicial).");
+        else{
+            $pares = retornaPares($inicial, $final);
+            $impares = retornaImpares($inicial, $final);
+            $paresQ = (int)quantidadePares($inicial, $final);
+            $imparesQ = (int)quantidadeImpares($inicial, $final);
+        }
+            
         }
     }
 ?>
@@ -22,49 +41,55 @@
 </head>
 <body>
     <header>
-        TABUADA
+        Impar ou Par
     </header>
     <main>
         <form method="post" action="" name="">
-            <div class="container">
-                <select name="inicial" id="">
+            <div class="container" >
+                <select name="inicial">
+                    <option selected disabled>Por favor, insira um número.</option>
                     <?php
-                        for($i = 0; $i <= 500; ++$i)
-                            echo "<option value='" . $i . "'>" . $i . "</option>";
+                        drawOptions(0, 500);
                     ?>
             </select>
-                <select name="final" id="">
+                <select name="final">
+                    <option selected disabled>Por favor, insira outro número.</option>
                     <?php
-                        for($i = 100; $i <= 1000; ++$i)
-                            echo "<option value='" . $i . "'>" . $i . "</option>";
+                        drawOptions(100, 1000);
                     ?>
                 </select>
             </div>
             <div class="resultado">
-                <div class="container">
+                <div class="resultado">
                     <h1>
                         PARES
                     </h1>
                     <p>
                         <?=$pares?>
                     </p>
+                    <h3>
+                        Quantidade: <?=$paresQ?>
+                    </h3>
                 </div>
-                <div class="container">
+                <div class="resultado">
                     <h1>
                         IMPARES
                     </h1>
                     <p>
                         <?=$impares?>
                     </p>
+                    <h3>
+                        Quantidade: <?=$imparesQ?>
+                    </h3>
                 </div>
             </div>
             <div class="enviar">
-                <input name="enviar" type="submit" >
+                <input name="enviar" type="submit">
             </div>
         </form>
     </main>
     <footer>
-
+        2021 - RICHARD
     </footer>
 </body>
 </html>

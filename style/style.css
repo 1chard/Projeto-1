@@ -4,16 +4,13 @@
     padding: 0px;
 }
 
-
 body {
     background-image: linear-gradient(30deg, pink, #00ff0000 70%), linear-gradient(101deg, #0f07, #ffff0011 70%), linear-gradient(201deg, #00d9, #0000ff11 70%), linear-gradient(291deg, yellow, #fff8 70%);
     background-size: 100vw 100vh;
     width: 100vw;
     height: 100vh;
-}
-
-main{
     display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -21,38 +18,64 @@ header {
     color: white;
     text-align: center;
     font-size: 2.4em;
-
-    width: 100%;
     font-weight: bold;
+    flex: 0 1 auto;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 2;
+    flex-wrap: wrap;
 }
 
-.container{
+.container {
     padding: 5px 5%;
     background-color: beige;
     border: 1px solid black;
-    flex-grow: 2;
+    flex: 2 0 auto;
     display: flex;
     flex-direction: column;
-}
-
-.resultado{
-    background-color: azure;
-    width: 100%;
-    display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    gap: 3%;
 }
 
-.clear{
-    clear: both;
+.resultado {
+    display: flex;
+    flex-direction: row;
+    
+    overflow-x: hidden;
+    flex: 0 1 auto;
+    background-color: azure;
+    text-align: center;
+    justify-content: center;
 }
-.caixaerro{
+
+.resultado .resultado{
+    flex-direction: column;
+    flex: 1 0 50%;
+}
+
+.resultado h1{
+    flex: 0 2 auto;
+}
+
+.resultado p{
+    flex: 2 0 auto;
+}
+
+
+.split{
+    width:
+}
+
+.caixaerro {
     position: absolute;
     bottom: 30px;
     width: 90%;
@@ -65,27 +88,121 @@ form {
     text-align: center;
     color: orangered;
     font-weight: bold;
-    z-index: 1;
+    z-index: 2;
+    transition: 4s 2s opacity, 5s 0s visibility;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.enviar{
+.enviar {
     width: 100%;
-    height: 100px;
+    display: flex;
+    flex: 1 0 auto;
 }
 
-.enviar input{
+.enviar input {
     background-color: blueviolet;
     color: antiquewhite;
     font-size: 2em;
-    height: inherit;
     width: inherit;
 }
 
+.enviar input:hover{
+    background-color: darkmagenta;
+}
+
+.text {
+    height: 1.5em;
+    background-image: linear-gradient(to bottom, lightblue, skyblue);
+    border: 2px solid dodgerblue;
+    border-radius: 10px/50px 5px;
+    box-shadow: 1px 1px 5px royalblue;
+    flex: 0 0 30px;
+    display: flex;
+    width: 80%;
+    color: aliceblue;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.text input {
+    color: darkblue;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    flex: 1 0 auto;
+    text-align: center;
+}
+
+.text label {
+    border: 1px solid royalblue;
+    border-radius: 10px/50px 5px;
+    box-shadow: 1px 1px 7px royalblue;
+    background-color: cornflowerblue;
+    padding: 3px;
+}
+
+select {
+    padding: 5px;
+    text-align: center;
+    width: 80%;
+    font-size: 1.5em;
+    flex: 0 0 auto;
+    border: 2px solid green;
+    border-radius: 5px/10px 50px;
+    background-image: linear-gradient(lime, limegreen);
+    box-shadow: 1px 1px 5px green;
+}
+
+select:focus {
+    background-image: linear-gradient(hotpink, fuchsia)
+}
+
+.fff::after{
+    content: "fff";
+}
+
+.radio{
+    flex: 0 0 30px;
+    border: 1px solid crimson;
+    width: 50%;
+    display: flex;
+    border-radius: 3px 5px 100px/30px;
+    box-shadow: 1px 1px 4px darkred;
+    background-image: linear-gradient(to bottom, hotpink, indianred);
+}
+
+.radio input{
+    appearance: none;
+    width: 50px;
+    border: 1px solid crimson;
+    border-radius: 3px 5px 100px/30px;
+    box-shadow: 1px 1px 4px red;
+    background-image: linear-gradient(to bottom, crimson, indianred);
+}
+
+.radio label{
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-indent: 40%;
+    color: darkred;
+}
+
+.radio input:checked{
+    background-image: linear-gradient(to bottom, orangered, orange);
+}
+
+.radio:focus-within{
+    background-image: linear-gradient(to bottom, orange, yellow);
+}
+
+
 footer {
     text-align: center;
-    position: absolute;
-    bottom: 0px;
     width: 100%;
     background: #333;
     color: azure;
+    flex: 0 1 auto;
 }

@@ -1,9 +1,11 @@
 <?php
 
-    const ERRO_DIVISAO = "Erro: Divisão por zero.";
-    const ERRO_VAZIO = "Preencha todos os campos.";
-const ERRO_NAO_NUMERO = "Erro: Não é numero.";
-const ERRO_ZERO = "Erro: Tabuada de zero.";
+    const ERRO_DIVISAO = "Divisão por zero";
+    const ERRO_VAZIO = "Campo não preenchido";
+    const ERRO_NAO_NUMERO = "Não é numero";
+    const ERRO_TABUADA_ZERO = "Tabuada de zero";
+    const ERRO_NEGATIVO = "Valor negativo";
+    const ERRO_MAIOR = "Alvo maior que o objetivo";
 
     function echoErro($mensagemErro){
         echo "<div class='caixaerro'>" . $mensagemErro . "</div>";

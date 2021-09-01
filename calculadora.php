@@ -11,7 +11,8 @@
 
         $numero1 = $_POST["numero1"];
         $numero2 = $_POST["numero2"];
-        $operador = (string)$_POST["operador"];
+
+        $operador = (string)@$_POST["operador"];
 
         $resultado = calculadora($numero1, $numero2, $operador);
     }

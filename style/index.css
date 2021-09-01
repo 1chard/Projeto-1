@@ -7,15 +7,13 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: repeating-linear-gradient(135deg, red 0% 25%, transparent 25% 50%, red 50% 75%, transparent 75% 100%) center / 5px 5px,
-        linear-gradient(42deg, #9f09 70%, transparent);
-
+    background: repeating-linear-gradient(135deg, red 0% 25%, transparent 25% 50%, red 50% 75%, transparent 75% 100%) center / 50px 50px,
+        linear-gradient(45deg, #9f09 60%, transparent), linear-gradient(225deg, pink 70%, transparent);;
 }
 
 header {
     width: 100%;
     height: 45px;
-    display: block;
     background: black;
     position: sticky;
     text-align: center;
@@ -41,7 +39,6 @@ form {
 
 @media (max-width: 1000px) {
     header h2 {
-        margin-right: 35%;
     }
 
     .hamburger {
@@ -58,6 +55,7 @@ form {
         width: 33px;
         display: block;
         margin: 5px 0px;
+        background-color: white;
     }
 
     .hamburger:hover .hamburger-content {

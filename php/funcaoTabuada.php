@@ -8,14 +8,12 @@
             echoErro("Erro: " . ERRO_TABUADA_ZERO . ".");
            
         else if($contador >= 0){
-            $retorno = "<p>";
             
             for($i = 1; $i <= $contador; $i++){
                 $retorno = $retorno . $tabuada . " x " . $i . " = " .
                 ($tabuada * $i) . "<br>";
             }
-            
-            $retorno = $retorno . "</p>";
+
         }
         else{
             echoErro(ERRO_NEGATIVO . " no contador.");
@@ -24,3 +22,5 @@
         return $retorno;
     }
 ?>
+
+

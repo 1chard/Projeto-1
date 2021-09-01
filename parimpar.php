@@ -8,7 +8,7 @@
     $paresQ = (int)0;
 
     if(isset($_POST["enviar"])){
-        if($_POST["inicial"] == "" || $_POST["final"] == ""){ 
+        if(@$_POST["inicial"] == "" || @$_POST["final"] == ""){
             echoErro("Erro: Campo(s) não preenchidos");
         }
         else{

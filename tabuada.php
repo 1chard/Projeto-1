@@ -7,6 +7,15 @@
     $tabuada = (string)null;
 
     if(isset($_POST["enviar"])){
+
+        if($_POST["contador"] == "" || $_POST["tabuada"] == "")
+            echoErro("Erro: " . ERRO_VAZIO);
+
+        else if(!is_numeric($_POST["contador"]) || !is_numeric($_POST["tabuada"]))
+            echoErro("Erro: " . ERRO_NAO_NUMERO);
+
+
+        else{
         $contador = $_POST["contador"];
         $tabuada = $_POST["tabuada"];
         
@@ -17,7 +26,8 @@
             echoErro("Erro: Nenhuma contagem inserida.");
         }
         else{//nenhum camp ta vazio
-            $resultados = tabuadaParaHTML($tabuada, $contador);
+            $resultados = tabuadaParaHTML((int)$tabuada, (int)$contador);
+        }
         }
     }
 ?>

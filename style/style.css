@@ -20,11 +20,15 @@ header {
     font-size: 2.4em;
     font-weight: bold;
     flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 main {
     flex-grow: 1;
     display: flex;
+
 }
 
 form {
@@ -36,7 +40,7 @@ form {
 
 .container {
     padding: 5px 5%;
-    background-color: beige;
+    background-color: #ffd;
     border: 1px solid black;
     flex: 2 0 auto;
     display: flex;
@@ -70,28 +74,20 @@ form {
     flex: 2 0 auto;
 }
 
-
-.split{
-    width:
-}
-
 .caixaerro {
     position: absolute;
-    bottom: 30px;
+    top: 30px;
     width: 90%;
-    margin: 0px 4%;
-    height: 100px;
+    height: 80px;
     background-color: sandybrown;
     box-shadow: 2px 2px 5px saddlebrown;
 
-    padding: 35px 0px;
+    padding: 25px 0px;
     text-align: center;
     color: orangered;
     font-weight: bold;
     z-index: 2;
-    transition: 4s 2s opacity, 5s 0s visibility;
-    opacity: 0;
-    visibility: hidden;
+    margin: 0px 5%;
 }
 
 .enviar {
@@ -101,7 +97,7 @@ form {
 }
 
 .enviar input {
-    background-color: blueviolet;
+    background-color: royalblue;
     color: antiquewhite;
     font-size: 2em;
     width: inherit;
@@ -158,27 +154,23 @@ select:focus {
     background-image: linear-gradient(hotpink, fuchsia)
 }
 
-.fff::after{
-    content: "fff";
-}
-
 .radio{
     flex: 0 0 30px;
-    border: 1px solid crimson;
+    border: 1px solid deepskyblue;
     width: 50%;
     display: flex;
-    border-radius: 3px 5px 100px/30px;
-    box-shadow: 1px 1px 4px darkred;
-    background-image: linear-gradient(to bottom, hotpink, indianred);
+    border-radius: 3px/10px 5px;
+    box-shadow: 1px 1px 6px royalblue, inset 1px 1px 5px skyblue;
+    background-image: linear-gradient(to bottom, azure, lightblue);
 }
 
 .radio input{
     appearance: none;
     width: 50px;
-    border: 1px solid crimson;
-    border-radius: 3px 5px 100px/30px;
-    box-shadow: 1px 1px 4px red;
-    background-image: linear-gradient(to bottom, crimson, indianred);
+    border: 1px solid skyblue;
+    border-radius: 3px/10px 5px;
+    box-shadow: 0px 0px 3px royalblue;
+    background-image: linear-gradient(to bottom, skyblue, lightblue);
 }
 
 .radio label{
@@ -186,18 +178,23 @@ select:focus {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    text-indent: 40%;
-    color: darkred;
+    text-indent: 35%;
 }
 
 .radio input:checked{
-    background-image: linear-gradient(to bottom, orangered, orange);
+    background-image: linear-gradient(to bottom, coral, lightcoral);
+    border: 1px solid brown;
+    box-shadow: 0px 0px 3px maroon;
 }
+
+
 
 .radio:focus-within{
-    background-image: linear-gradient(to bottom, orange, yellow);
+    background-image: linear-gradient(to bottom, coral, lightcoral);
+    border: 1px solid brown;
+    box-shadow: 0px 0px 3px maroon;
+    color: maroon;
 }
-
 
 footer {
     text-align: center;

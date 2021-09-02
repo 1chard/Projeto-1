@@ -148,6 +148,7 @@ select {
     border-radius: 5px/10px 50px;
     background-image: linear-gradient(lime, limegreen);
     box-shadow: 1px 1px 5px green;
+    outline: none;
 }
 
 select:focus {

@@ -22,11 +22,9 @@ header {
 header h2 {
     height: inherit;
     color: white;
-    position: relative;
-    top: 50%;
     float: right;
     margin-right: 3%;
-    transform: translateY(-30%);
+    margin-top: 10px;
 }
 
 form {
@@ -37,26 +35,48 @@ form {
     gap: 3%;
 }
 
-@media (max-width: 1000px) {
-    header h2 {
-    }
+iframe{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 
+@media (max-width: 1000px) {
     .hamburger {
         background: black;
         width: 45px;
         height: 45px;
-        padding: 7px 5px;
+        padding: 4px 5px;
         float: left;
+        border: px solid blue;
     }
-
 
     .ham {
-        border: 2px solid white;
+        height: 4px;
         width: 33px;
         display: block;
-        margin: 5px 0px;
+        margin: 6px 0 0 0;
         background-color: white;
+        transition: 0.5s 0s transform ease-out, 0.5s 0s width ease-out;
     }
+    
+    .hamburger:hover .ham{
+        opacity: 0;
+    }
+    
+    .hamburger:hover .ham:first-of-type{
+        opacity: 1;
+        background: red;
+        transform: rotate(45deg) translate(3px, 12px);
+        width: 45px;
+    }
+    
+    .hamburger:hover .ham:last-of-type{
+        opacity: 1;
+        background: red;
+        transform: rotate(-45deg) translate(2px, -11px);
+        width: 45px;
+    }
+
 
     .hamburger:hover .hamburger-content {
         display: block;
@@ -64,7 +84,7 @@ form {
 
     .hamburger-content {
         position: relative;
-        top: 5px;
+        top: 10px;
         right: 5px;
         display: none;
         width: 300px;
@@ -88,7 +108,7 @@ form {
     }
 
     .hamburger-content a:hover {
-        background: #ddd;
+        background: linear-gradient(to bottom, #ddd, #ccc);
     }
 
     main {
